@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+  root 'users#index'
+
   resources :users do
-    post :import
+    collection do
+      post :import
+    end
   end
 end
