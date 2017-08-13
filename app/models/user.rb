@@ -3,7 +3,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, email: true
 
   def self.load_from_file(loader)
-    importer.build_params.map do |params|
+    loader.build_params.map do |params|
       user = new(params)
       user.save
     end
